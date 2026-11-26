@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ABR Lookup</title>
+  <link rel="stylesheet" href="popup.css">
+  <script type="module" src="popup.js"></script>
+</head>
+<body>
+  <header>
+    <form id="search-form" autocomplete="off">
+      <input id="query" type="search" placeholder="Business name, ABN or ACN" aria-label="Business name, ABN or ACN" autofocus>
+      <button type="submit" id="search-btn">Search</button>
+    </form>
+    <p id="hint" class="hint"></p>
+  </header>
+
+  <main id="content" aria-live="polite"></main>
+
+  <footer>
+    <span>Data: Australian Business Register</span>
+    <a href="#" id="open-options">Settings</a>
+  </footer>
+</body>
+</html>

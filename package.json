@@ -1,0 +1,11 @@
+{
+  "name": "abr-lookup-chrome",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Chrome extension to look up Australian businesses by name, ABN or ACN via the ABR.",
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "package": "rm -f dist/abr-lookup.zip && mkdir -p dist && zip -r dist/abr-lookup.zip manifest.json src icons/*.png"
+  }
+}

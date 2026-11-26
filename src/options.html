@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ABR Lookup – Settings</title>
+  <style>
+    :root { color-scheme: light dark; --accent: #1f4e8c; --muted: #5f6b7d; --border: #d9dee6; --ok: #1d7a3e; --bad: #b3261e; }
+    @media (prefers-color-scheme: dark) { :root { --accent: #6ea0e6; --muted: #9aa4b5; --border: #353b46; --ok: #5cc184; --bad: #f28b82; } }
+    body { font: 14px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; max-width: 560px; margin: 24px auto; padding: 0 20px; }
+    h1 { font-size: 20px; margin: 0 0 4px; }
+    p.lead { color: var(--muted); margin: 0 0 20px; }
+    label { display: block; font-weight: 600; margin: 16px 0 4px; }
+    .help { font-size: 12px; color: var(--muted); margin: 4px 0 0; }
+    input, select { font: inherit; padding: 7px 9px; border: 1px solid var(--border); border-radius: 6px; background: transparent; color: inherit; }
+    input { width: 100%; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .actions { margin-top: 22px; display: flex; align-items: center; gap: 12px; }
+    button { font: inherit; font-weight: 600; padding: 8px 16px; border: 0; border-radius: 6px; background: var(--accent); color: #fff; cursor: pointer; }
+    button:disabled { opacity: 0.6; cursor: default; }
+    #status.ok { color: var(--ok); }
+    #status.error { color: var(--bad); }
+    a { color: var(--accent); }
+  </style>
+  <script type="module" src="options.js"></script>
+</head>
+<body>
+  <h1>ABR Lookup settings</h1>
+  <p class="lead">Look up Australian Business Register details by business name, ABN or ACN.</p>
+
+  <form id="options-form">
+    <label for="guid">ABR authentication GUID</label>
+    <input id="guid" type="text" spellcheck="false" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" required>
+    <p class="help">
+      The ABR web services need a free authentication GUID.
+      <a href="https://abr.business.gov.au/Tools/WebServicesAgreement" target="_blank" rel="noopener">Register for one here</a>.
+      It's stored in Chrome sync storage and sent only to abr.business.gov.au.
+    </p>
+
+    <label for="max-results">Maximum name search results</label>
+    <select id="max-results">
+      <option value="10">10</option>
+      <option value="20">20</option>
+      <option value="50">50</option>
+      <option value="100">100</option>
+    </select>
+
+    <div class="actions">
+      <button type="submit" id="save">Save &amp; test</button>
+      <span id="status" role="status"></span>
+    </div>
+  </form>
+</body>
+</html>
